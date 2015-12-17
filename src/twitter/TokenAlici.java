@@ -6,8 +6,10 @@ import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.URI;
 
 /**
  * Created by erkanmdr on 17.12.2015.
@@ -25,6 +27,10 @@ public class TokenAlici {
         while (null == accessToken) {
             System.out.println("Bu linkten uygulamaya giriş yapınız:");
             System.out.println(requestToken.getAuthorizationURL());
+            if(Desktop.isDesktopSupported())
+            {
+                Desktop.getDesktop().browse(new URI(requestToken.getAuthorizationURL()));
+            }
             System.out.print("PIN Kodunu buraya giriniz: ");
             String pin = br.readLine();
             try {

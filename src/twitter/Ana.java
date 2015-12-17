@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Ana {
-    static String VERSIYON = "v1.0";
+    static String VERSIYON = "v1.1";
 
     public static void main(String[] args) throws IOException {
         System.out.println("MiDoRi-Prolockter " + VERSIYON + " hazır.");
