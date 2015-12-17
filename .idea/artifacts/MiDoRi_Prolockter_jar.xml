@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MiDoRi-Prolockter:jar">
+    <output-path>$PROJECT_DIR$/bin</output-path>
+    <root id="archive" name="MiDoRi-Prolockter.jar">
+      <element id="module-output" name="MiDoRi-Prolockter" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/twitter4j-core-4.0.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
