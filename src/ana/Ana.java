@@ -1,5 +1,7 @@
-package twitter;
+package ana;
 
+import twitter.Ayar;
+import twitter.Is;
 import twitter4j.Twitter;
 
 import java.io.File;
