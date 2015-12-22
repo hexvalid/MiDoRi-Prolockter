@@ -27,8 +27,8 @@ public class TokenAlici {
         while (null == accessToken) {
             System.out.println("Bu linkten uygulamaya giriş yapınız:");
             System.out.println(requestToken.getAuthorizationURL());
-            if(Desktop.isDesktopSupported())
-            {
+            if (Desktop.isDesktopSupported()) {
+                //TODO: DESTEKLEMEZSE EKRANA YAZ
                 Desktop.getDesktop().browse(new URI(requestToken.getAuthorizationURL()));
             }
             System.out.print("PIN Kodunu buraya giriniz: ");
