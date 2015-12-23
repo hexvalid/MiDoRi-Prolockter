@@ -28,7 +28,7 @@ import static araclar.Log.Tur.*;
 public class HesapAcBotu {
 
     //DEĞİŞKENLER!
-    static int ZAMAN_ASIMI = 250;
+    static int ZAMAN_ASIMI = 200;
     static int ZAMAN_ASIMI_TARAYICI = 25;
 
     //////////////

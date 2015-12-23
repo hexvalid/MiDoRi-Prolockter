@@ -36,7 +36,7 @@ public class Eposta {
                 break;
             } catch (org.openqa.selenium.NoSuchElementException e) {
                 i++;
-                if (i >= 10) {
+                if (i >= 50) {
                     return false;
                 }
                 try {
