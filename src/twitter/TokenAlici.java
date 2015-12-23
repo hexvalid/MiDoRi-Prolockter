@@ -20,7 +20,7 @@ public class TokenAlici {
 
     public static Twitter al() throws Exception {
         Twitter twitter = TwitterFactory.getSingleton();
-        twitter.setOAuthConsumer(Hesap.CUNSOMERKEY, Hesap.CUNSOMERSECRET);
+        twitter.setOAuthConsumer(null, null);
         RequestToken requestToken = twitter.getOAuthRequestToken();
         AccessToken accessToken = null;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -49,8 +49,37 @@ public class TokenAlici {
         }
         ENSON_TOKEN = accessToken.getToken();
         ENSON_SECRETTOKEN = accessToken.getTokenSecret();
-        return Hesap.getir(ENSON_TOKEN, ENSON_SECRETTOKEN);
+        //return Hesap.getir(ENSON_TOKEN, ENSON_SECRETTOKEN);
+        return null;
+//TODO: ONARILACAK
     }
 
+
+    //yedek:
+    // Log.yaz("Token oluşturuluyor...", BILGI);
+//                        ConfigurationBuilder builder = new ConfigurationBuilder();
+//                        builder.setOAuthConsumerKey(Hesap.CUNSOMERKEY);
+//                        builder.setOAuthConsumerSecret(Hesap.CUNSOMERSECRET);
+//                        Configuration configuration = builder.build();
+//                        TwitterFactory factory = new TwitterFactory(configuration);
+//                        Twitter twitter = factory.getInstance();
+//
+//                        RequestToken requestToken = null;
+//                        requestToken = twitter.getOAuthRequestToken();
+//
+//                        AccessToken accessToken = null;
+//                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//                        Log.yaz("Token sayfası açılıyor...", BILGI);
+//                        driver.get(requestToken.getAuthorizationURL());
+//                        WebElement _uygulamayaizinver = driver.findElement(By.xpath("//*[@id=\"allow\"]"));
+//                        _uygulamayaizinver.submit();
+//                        Log.yaz("Uygulamaya izin verildi. PIN numarası alınıyor...", BILGI);
+//                        WebElement _pin = driver.findElement(By.xpath("//*[@id=\"oauth_pin\"]/p/kbd/code"));
+//                        accessToken = twitter.getOAuthAccessToken(requestToken, _pin.getText());
+//                        Log.yaz("PIN numarası alındı. Token alınıyor...", BILGI);
+//                        String TOKEN = accessToken.getToken();
+//                        String SECRETTOKEN = accessToken.getTokenSecret();
+//                        Log.yaz("Token alındı. Tarayıcı kapatılıyor...", BILGI);
+//                        driver.quit();
 
 }

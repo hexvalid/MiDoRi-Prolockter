@@ -1,13 +1,13 @@
 package araclar;
 
 import ana.Ana;
-import bot.Jenerator;
-import twitter.Hesap;
 import vpn.HMA;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import static araclar.Log.Tur.*;
 
@@ -15,7 +15,8 @@ import static araclar.Log.Tur.*;
  * Created by erkanmdr on 20.12.2015.
  */
 public class Veritabani {
-    public static final String VERITABANI_URLSI = "jdbc:mysql://94.73.145.238:3306/midoriprolockter";
+    public static final String VERITABANI_URLSI = "jdbc:mysql://94.73.145.238:3306/midoriprolockter?" +
+            "useUnicode=true&amp;characterEncoding=utf8";
     static String VERITABANI_KULLANICI_ADI = "mdr6C7100467E";
     static String VERITABANI_SIFRESI = "DNkw17V0";
 
@@ -23,7 +24,7 @@ public class Veritabani {
         ID, KULLANICI_ADI, SIFRE, TOKEN,
         SECRET_TOKEN, DURUM, ACILIS_TARIHI, ACILIS_IPSI,
         EMAIL_ADRESI, PROLOCKTER_VERSIYONU,
-        CUNSOMER_KEY, CUNSOMER_SECRET, SERI
+        CUNSOMER_KEY, CUNSOMER_SECRET, SERI, BIO, TWEET
     }
 
     public enum DURUMMODEL {
@@ -33,9 +34,13 @@ public class Veritabani {
     public static Statement SQL_STS = null;
     public static Connection SQL_BAGLANTISI = null;
 
-    public static void main(String[] args) throws SQLException {
-        System.out.println(Jenerator.rastgeleAvatar());
+    public static void main(String[] args) {
+        System.out.println(sqlBaglantisiVarmi());
+        sqlBaglan();
+        System.out.println(Veritabani.rastgeleTakipEdilecekKullanici());
+
     }
+
 
     public static boolean sqlBaglan() {
         try {
@@ -59,15 +64,25 @@ public class Veritabani {
         try {
             SQL_STS.close();
             SQL_BAGLANTISI.close();
+            SQL_STS = null;
+            SQL_BAGLANTISI = null;
             Log.yaz("Veritabanı kapatıldı", BILGI);
         } catch (SQLException e) {
             Log.yaz("Veritabanı kapatılamadı: " + e, HATA);
         }
     }
 
+    public static boolean sqlBaglantisiVarmi() {
+        if (SQL_BAGLANTISI == null)
+            return false;
+        else
+            return true;
+    }
+
     public static void hesapEkle(String kullanici_adi, String sifre,
-                                 String token, String secret_token, DURUMMODEL durum,
-                                 String email_adresi, String seri) {
+                                 String token, String secret_token,
+                                 String cunsomer_key, String cunsomer_secret,
+                                 DURUMMODEL durum, String email_adresi, String seri) {
 
         try {
             String sql = " insert into hesaplar (ID, KULLANICI_ADI, SIFRE," +
@@ -86,8 +101,8 @@ public class Veritabani {
             preparedStmt.setString(8, HMA.sonIP());
             preparedStmt.setString(9, email_adresi);
             preparedStmt.setString(10, Ana.VERSIYON);
-            preparedStmt.setString(11, Hesap.CUNSOMERKEY);
-            preparedStmt.setString(12, Hesap.CUNSOMERSECRET);
+            preparedStmt.setString(11, cunsomer_key);
+            preparedStmt.setString(12, cunsomer_secret);
             preparedStmt.setString(13, seri);
             preparedStmt.execute();
             Log.yaz("Veritabanına yeni hesap eklendi", BASARILI);
@@ -114,12 +129,14 @@ public class Veritabani {
     public static List<String> kullaniciTokeniAl(String id) {
         List<String> liste = new ArrayList<String>();
         try {
-            String sql = "SELECT KULLANICI_ADI, TOKEN, SECRET_TOKEN FROM hesaplar WHERE id = " + id + ";";
+            String sql = "SELECT KULLANICI_ADI, TOKEN, SECRET_TOKEN, CUNSOMER_KEY, CUNSOMER_SECRET FROM hesaplar WHERE id = " + id + ";";
             ResultSet sonuc = SQL_STS.executeQuery(sql);
             while (sonuc.next()) {
                 liste.add(sonuc.getString("KULLANICI_ADI"));
                 liste.add(sonuc.getString("TOKEN"));
                 liste.add(sonuc.getString("SECRET_TOKEN"));
+                liste.add(sonuc.getString("CUNSOMER_KEY"));
+                liste.add(sonuc.getString("CUNSOMER_SECRET"));
             }
             Log.yaz("Veritabanından kullanıcı tokeni alındı", BASARILI);
         } catch (SQLException e) {
@@ -127,4 +144,69 @@ public class Veritabani {
         }
         return liste;
     }
+
+    public static int hesapSayisi() {
+        List<String> liste = new ArrayList<String>();
+        int i = 0;
+        try {
+            String sql = "select * from hesaplar";
+            ResultSet sonuc = SQL_STS.executeQuery(sql);
+            while (sonuc.next()) {
+                i++;
+            }
+            Log.yaz("Veritabanından kullanıcı bilgileri alındı", BASARILI);
+        } catch (SQLException e) {
+            Log.yaz("Veritabanından kullanıcı bilgileri alınamadı: " + e, HATA);
+        }
+        return i;
+    }
+
+    public static String rastgeleBio() {
+        List<String> liste = new ArrayList<String>();
+        try {
+            String sql = "select * from rastgele_bio_listesi";
+            ResultSet sonuc = SQL_STS.executeQuery(sql);
+            while (sonuc.next()) {
+                liste.add(sonuc.getString(SQLMODEL.BIO.toString()));
+            }
+            Collections.shuffle(liste, new Random(System.nanoTime()));
+            Log.yaz("Veritabanından " + liste.size() + " bio arasından rastgele biri alındı", BASARILI);
+        } catch (SQLException e) {
+            Log.yaz("Veritabanından rastgele bio alınamadı: " + e, HATA);
+        }
+        return liste.get(0);
+    }
+
+    public static String rastgeleTweet() {
+        List<String> liste = new ArrayList<String>();
+        try {
+            String sql = "select * from rastgele_tweet_listesi";
+            ResultSet sonuc = SQL_STS.executeQuery(sql);
+            while (sonuc.next()) {
+                liste.add(sonuc.getString(SQLMODEL.TWEET.toString()));
+            }
+            Collections.shuffle(liste, new Random(System.nanoTime()));
+            Log.yaz("Veritabanından " + liste.size() + " tweet arasından rastgele biri alındı", BASARILI);
+        } catch (SQLException e) {
+            Log.yaz("Veritabanından rastgele tweet alınamadı: " + e, HATA);
+        }
+        return liste.get(0);
+    }
+
+    public static String rastgeleTakipEdilecekKullanici() {
+        List<String> liste = new ArrayList<String>();
+        try {
+            String sql = "select * from rastgele_takip_listesi";
+            ResultSet sonuc = SQL_STS.executeQuery(sql);
+            while (sonuc.next()) {
+                liste.add(sonuc.getString(SQLMODEL.KULLANICI_ADI.toString()));
+            }
+            Collections.shuffle(liste, new Random(System.nanoTime()));
+            Log.yaz("Veritabanından " + liste.size() + " takip edilecek kullanıcı arasından rastgele biri alındı", BASARILI);
+        } catch (SQLException e) {
+            Log.yaz("Veritabanından rastgele takip edilecek kullanıcı alınamadı: " + e, HATA);
+        }
+        return liste.get(0);
+    }
+
 }

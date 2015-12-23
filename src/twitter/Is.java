@@ -5,6 +5,10 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 
 import static araclar.Log.Tur.*;
 
@@ -18,7 +22,10 @@ public class Is {
             hesap.updateStatus(tweet);
             Log.yaz("Tweet atıldı", BASARILI);
         } catch (TwitterException e) {
-            Log.yaz("Tweet atılamadı: " + e, HATA);
+            if (e.toString().contains("Status is a duplicate"))
+                Log.yaz("Tweet atılamadı: Bunu zaten tweetlemişsin!" + e, UYARI);
+            else
+                Log.yaz("Tweet atılamadı: " + e, HATA);
         }
     }
 
@@ -59,6 +66,16 @@ public class Is {
         }
     }
 
+    public static void bannerGuncelle(Twitter hesap, File dosya) {
+        try {
+            Log.yaz("Banner resmi yükleniyor...", BILGI);
+            hesap.updateProfileBanner(dosya);
+            Log.yaz("Banner resmi güncellendi", BASARILI);
+        } catch (TwitterException e) {
+            Log.yaz("Banner resmi güncellenemedi: " + e, HATA);
+        }
+    }
+
     public static void isimGuncelle(Twitter hesap, String isim) {
         try {
             hesap.updateProfile(isim, null, null, null);
@@ -92,6 +109,22 @@ public class Is {
             Log.yaz("Profil biografisi güncellendi", BASARILI);
         } catch (TwitterException e) {
             Log.yaz("Profil biografisi güncellenemedi: " + e, HATA);
+        }
+    }
+
+    public static void indir(String url, String indirmekonumu, boolean log) {
+        try {
+            if (log)
+                Log.yaz("Dosya indiriliyor...", BILGI);
+            URL website = new URL(url);
+            ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+            FileOutputStream fos = new FileOutputStream(indirmekonumu);
+            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+            if (log)
+                Log.yaz("Dosya indirildi", BASARILI);
+        } catch (Exception e) {
+            Log.yaz("Dosya indirilemedi: " + e, HATA);
+
         }
     }
 

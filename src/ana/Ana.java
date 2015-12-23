@@ -10,11 +10,13 @@ import twitter4j.TwitterException;
 import vpn.HMA;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Ana {
-    public static String VERSIYON = "v1.8";
+    public static String VERSIYON = "v1.87";
 
     public static void main(String[] args) throws IOException, TwitterException {
         HMA.SUDO_SIFRESI = "rkn42rdm";
@@ -47,11 +49,12 @@ public class Ana {
             String statuskodu = in2.next();
             Veritabani.sqlBaglan();
             List<String> liste = Veritabani.kullaniciAl(Veritabani.SQLMODEL.ID);
+            Collections.shuffle(liste, new Random(System.nanoTime()));
 
             for (int i = 1; i < liste.size(); i++) {
-                List<String>  kullanici = Veritabani.kullaniciTokeniAl(liste.get(i));
+                List<String> kullanici = Veritabani.kullaniciTokeniAl(liste.get(i));
                 System.out.println(kullanici.get(1) + kullanici.get(2));
-                Twitter baglihesap = Hesap.getir(kullanici.get(1), kullanici.get(2));
+                Twitter baglihesap = Hesap.getir(kullanici.get(1), kullanici.get(2), kullanici.get(3), kullanici.get(4));
                 Is.rtYap(baglihesap, statuskodu);
                 Is.favYap(baglihesap, statuskodu);
             }

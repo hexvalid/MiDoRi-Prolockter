@@ -15,7 +15,7 @@ public class Jenerator {
 
 
     public enum ListDosyalari {
-        ad, soyad, tweet, bio, takip
+        ad, soyad, tweet, bio, takip, star
     }
 
 
@@ -62,6 +62,13 @@ public class Jenerator {
         File parent = new File("list/avatar");
         File[] files = parent.listFiles();
         Log.yaz("Rastgele avatar seçildi", BASARILI);
+        return files[(int) (Math.random() * files.length)];
+    }
+
+    public static File rastgeleBanner() {
+        File parent = new File("list/banner");
+        File[] files = parent.listFiles();
+        Log.yaz("Rastgele banner seçildi", BASARILI);
         return files[(int) (Math.random() * files.length)];
     }
 }

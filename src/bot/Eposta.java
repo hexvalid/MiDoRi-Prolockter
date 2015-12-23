@@ -40,7 +40,7 @@ public class Eposta {
                     return false;
                 }
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }

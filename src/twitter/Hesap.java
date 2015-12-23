@@ -12,16 +12,18 @@ import static araclar.Log.Tur.BILGI;
  * Created by erkanmdr on 17.12.2015.
  */
 public class Hesap {
-    public static String CUNSOMERKEY = "RzMcnCQtffylPLlbeZ95qhlvn";
-    public static String CUNSOMERSECRET = "62Aoy5W1IgkXL7XXGxCno9XwT3YgsFS8cC8pWKiB3m8xgFIPer";
+    //ESKİ
+//    public static String CUNSOMERKEY = "RzMcnCQtffylPLlbeZ95qhlvn";
+//    public static String CUNSOMERSECRET = "62Aoy5W1IgkXL7XXGxCno9XwT3YgsFS8cC8pWKiB3m8xgFIPer";
 
-    public static Twitter getir(String accesstoken, String accesssecret) {
+    public static Twitter getir(String accesstoken, String accesssecret,
+                                String cunsomerkey, String cunsomersecret) {
 
         Log.yaz("Giriş yapılıyor...", BILGI);
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey(CUNSOMERKEY)
-                .setOAuthConsumerSecret(CUNSOMERSECRET)
+                .setOAuthConsumerKey(cunsomerkey)
+                .setOAuthConsumerSecret(cunsomersecret)
                 .setOAuthAccessToken(accesstoken)
                 .setOAuthAccessTokenSecret(accesssecret);
         TwitterFactory tf = new TwitterFactory(cb.build());

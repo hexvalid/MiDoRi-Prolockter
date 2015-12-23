@@ -31,11 +31,10 @@ public class Ayar {
         Properties prop = new Properties();
         InputStream input = null;
         try {
-
             input = new FileInputStream("cfg/" + dosya);
             prop.load(input);
             System.out.println(prop.getProperty("id") + " kullanıcısının ayar dosyası okundu.");
-            return Hesap.getir(prop.getProperty("token"), prop.getProperty("tokensecret"));
+         //   return Hesap.getir(prop.getProperty("token"), prop.getProperty("tokensecret"));
 
         } catch (IOException ex) {
             ex.printStackTrace();
