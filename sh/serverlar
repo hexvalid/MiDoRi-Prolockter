@@ -1,0 +1,31 @@
+78.46.46.106|Germany, Bavaria, Nuremberg (LOC1 S1)|de|TCP|UDP|NORANDOM
+46.4.73.107|Germany, Bavaria, Nuremberg (LOC1 S2)|de|TCP|UDP|NORANDOM
+80.255.4.2|Germany, Bavaria, Nuremberg (LOC2 S1)|de|TCP|UDP|
+80.255.4.130|Germany, Bavaria, Nuremberg (LOC2 S2)|de|TCP|UDP|
+130.185.109.53|Germany, Bavaria, Nuremberg (LOC3 S1)|de|TCP|UDP|
+5.56.23.130|Germany, Bavaria, Nuremberg (LOC2 S3)|de|TCP|UDP|
+31.7.187.2|Germany, Bavaria, Nuremberg (LOC2 S4)|de|TCP|UDP|
+31.7.187.130|Germany, Bavaria, Nuremberg (LOC2 S5)|de|TCP|UDP|
+193.200.241.160|Germany, Bavaria, Munich (LOC1 S1)|de|TCP|UDP|
+178.238.235.79|Germany, Bavaria, Munich (LOC1 S2)|de|TCP|UDP|
+62.113.202.130|Germany, Hesse, Frankfurt (LOC1 S1)|de|TCP|UDP|
+62.113.251.2|Germany, Hesse, Frankfurt (LOC1 S2)|de|TCP|UDP|
+192.171.253.2|Germany, Frankfurt - Virtual USA (LOC1 S1)|us|TCP|UDP|
+107.168.204.2|Germany, Frankfurt - Virtual USA (LOC1 S2)|us|TCP|UDP|
+82.199.129.2|Germany, Bavaria, Munich (LOC2 S1)|de|TCP|UDP|
+82.199.129.130|Germany, Bavaria, Munich (LOC2 S2)|de|TCP|UDP|
+62.113.206.2|Germany, Hesse, Frankfurt (LOC1 S3)|de|TCP|UDP|
+62.113.206.130|Germany, Hesse, Frankfurt (LOC1 S4)|de|TCP|UDP|
+5.62.16.2|Germany, Frankfurt - Virtual UK (LOC1 S1)|gb|TCP|UDP|
+5.62.17.2|Germany, Frankfurt - Virtual UK (LOC1 S2)|gb|TCP|UDP|
+87.119.203.2|Germany, Dusseldorf (LOC2 S1)|de|TCP|UDP|
+87.119.203.3|Germany, Dusseldorf (LOC2 S2)|de|TCP|UDP|
+82.199.150.2|Germany, Bavaria, Munich (LOC2 S3)|de|TCP|UDP|
+82.199.150.130|Germany, Bavaria, Munich (LOC2 S4)|de|TCP|UDP|
+62.113.254.130|Germany, Hesse, Frankfurt (LOC1 S5)|de|TCP|UDP|
+62.113.251.130|Germany, Hesse, Frankfurt (LOC1 S6)|de|TCP|UDP|
+212.83.40.2|Germany, Hesse, Frankfurt (LOC1 S7)|de|TCP|UDP|
+212.83.59.130|Germany, Hesse, Frankfurt (LOC1 S8)|de|TCP|UDP|
+5.56.16.2|Germany, Berlin (LOC1 S1)|de|TCP|UDP|
+5.56.16.130|Germany, Berlin (LOC1 S2)|de|TCP|UDP|
+80.255.7.2|Germany, Berlin (LOC1 S3)|de|TCP|UDP|
