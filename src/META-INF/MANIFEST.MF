@@ -1,3 +1,215 @@
 Manifest-Version: 1.0
+Class-Path: selenium-java-2.48.2.jar selenium-chrome-driver-2.48.2.jar
+  selenium-remote-driver-2.48.2.jar cglib-nodep-2.1_3.jar gson-2.3.1.j
+ ar selenium-api-2.48.2.jar guava-18.0.jar httpclient-4.5.1.jar httpco
+ re-4.4.3.jar commons-logging-1.2.jar commons-codec-1.10.jar commons-e
+ xec-1.3.jar jna-4.1.0.jar jna-platform-4.1.0.jar selenium-edge-driver
+ -2.48.2.jar commons-io-2.4.jar selenium-htmlunit-driver-2.48.2.jar se
+ lenium-support-2.48.2.jar htmlunit-2.18.jar xalan-2.7.2.jar serialize
+ r-2.7.2.jar xml-apis-1.4.01.jar commons-collections-3.2.1.jar commons
+ -lang3-3.4.jar httpmime-4.5.jar htmlunit-core-js-2.17.jar xercesImpl-
+ 2.11.0.jar nekohtml-1.9.22.jar cssparser-0.9.16.jar sac-1.3.jar webso
+ cket-client-9.2.12.v20150709.jar jetty-util-9.2.12.v20150709.jar jett
+ y-io-9.2.12.v20150709.jar websocket-common-9.2.12.v20150709.jar webso
+ cket-api-9.2.12.v20150709.jar selenium-firefox-driver-2.48.2.jar sele
+ nium-ie-driver-2.48.2.jar selenium-safari-driver-2.48.2.jar webbit-0.
+ 4.14.jar netty-3.5.2.Final.jar selenium-leg-rc-2.48.2.jar selenium-ja
+ va-2.48.2.jar selenium-chrome-driver-2.48.2.jar selenium-remote-drive
+ r-2.48.2.jar cglib-nodep-2.1_3.jar gson-2.3.1.jar selenium-api-2.48.2
+ .jar guava-18.0.jar httpclient-4.5.1.jar httpcore-4.4.3.jar commons-l
+ ogging-1.2.jar commons-codec-1.10.jar commons-exec-1.3.jar jna-4.1.0.
+ jar jna-platform-4.1.0.jar selenium-edge-driver-2.48.2.jar commons-io
+ -2.4.jar selenium-htmlunit-driver-2.48.2.jar selenium-support-2.48.2.
+ jar htmlunit-2.18.jar xalan-2.7.2.jar serializer-2.7.2.jar xml-apis-1
+ .4.01.jar commons-collections-3.2.1.jar commons-lang3-3.4.jar httpmim
+ e-4.5.jar htmlunit-core-js-2.17.jar xercesImpl-2.11.0.jar nekohtml-1.
+ 9.22.jar cssparser-0.9.16.jar sac-1.3.jar websocket-client-9.2.12.v20
+ 150709.jar jetty-util-9.2.12.v20150709.jar jetty-io-9.2.12.v20150709.
+ jar websocket-common-9.2.12.v20150709.jar websocket-api-9.2.12.v20150
+ 709.jar selenium-firefox-driver-2.48.2.jar selenium-ie-driver-2.48.2.
+ jar selenium-safari-driver-2.48.2.jar webbit-0.4.14.jar netty-3.5.2.F
+ inal.jar selenium-leg-rc-2.48.2.jar selenium-java-2.48.2.jar selenium
+ -chrome-driver-2.48.2.jar selenium-remote-driver-2.48.2.jar cglib-nod
+ ep-2.1_3.jar gson-2.3.1.jar selenium-api-2.48.2.jar guava-18.0.jar ht
+ tpclient-4.5.1.jar httpcore-4.4.3.jar commons-logging-1.2.jar commons
+ -codec-1.10.jar commons-exec-1.3.jar jna-4.1.0.jar jna-platform-4.1.0
+ .jar selenium-edge-driver-2.48.2.jar commons-io-2.4.jar selenium-html
+ unit-driver-2.48.2.jar selenium-support-2.48.2.jar htmlunit-2.18.jar 
+ xalan-2.7.2.jar serializer-2.7.2.jar xml-apis-1.4.01.jar commons-coll
+ ections-3.2.1.jar commons-lang3-3.4.jar httpmime-4.5.jar htmlunit-cor
+ e-js-2.17.jar xercesImpl-2.11.0.jar nekohtml-1.9.22.jar cssparser-0.9
+ .16.jar sac-1.3.jar websocket-client-9.2.12.v20150709.jar jetty-util-
+ 9.2.12.v20150709.jar jetty-io-9.2.12.v20150709.jar websocket-common-9
+ .2.12.v20150709.jar websocket-api-9.2.12.v20150709.jar selenium-firef
+ ox-driver-2.48.2.jar selenium-ie-driver-2.48.2.jar selenium-safari-dr
+ iver-2.48.2.jar webbit-0.4.14.jar netty-3.5.2.Final.jar selenium-leg-
+ rc-2.48.2.jar selenium-java-2.48.2.jar selenium-chrome-driver-2.48.2.
+ jar selenium-remote-driver-2.48.2.jar cglib-nodep-2.1_3.jar gson-2.3.
+ 1.jar selenium-api-2.48.2.jar guava-18.0.jar httpclient-4.5.1.jar htt
+ pcore-4.4.3.jar commons-logging-1.2.jar commons-codec-1.10.jar common
+ s-exec-1.3.jar jna-4.1.0.jar jna-platform-4.1.0.jar selenium-edge-dri
+ ver-2.48.2.jar commons-io-2.4.jar selenium-htmlunit-driver-2.48.2.jar
+  selenium-support-2.48.2.jar htmlunit-2.18.jar xalan-2.7.2.jar serial
+ izer-2.7.2.jar xml-apis-1.4.01.jar commons-collections-3.2.1.jar comm
+ ons-lang3-3.4.jar httpmime-4.5.jar htmlunit-core-js-2.17.jar xercesIm
+ pl-2.11.0.jar nekohtml-1.9.22.jar cssparser-0.9.16.jar sac-1.3.jar we
+ bsocket-client-9.2.12.v20150709.jar jetty-util-9.2.12.v20150709.jar j
+ etty-io-9.2.12.v20150709.jar websocket-common-9.2.12.v20150709.jar we
+ bsocket-api-9.2.12.v20150709.jar selenium-firefox-driver-2.48.2.jar s
+ elenium-ie-driver-2.48.2.jar selenium-safari-driver-2.48.2.jar webbit
+ -0.4.14.jar netty-3.5.2.Final.jar selenium-leg-rc-2.48.2.jar selenium
+ -java-2.48.2.jar selenium-chrome-driver-2.48.2.jar selenium-remote-dr
+ iver-2.48.2.jar cglib-nodep-2.1_3.jar gson-2.3.1.jar selenium-api-2.4
+ 8.2.jar guava-18.0.jar httpclient-4.5.1.jar httpcore-4.4.3.jar common
+ s-logging-1.2.jar commons-codec-1.10.jar commons-exec-1.3.jar jna-4.1
+ .0.jar jna-platform-4.1.0.jar selenium-edge-driver-2.48.2.jar commons
+ -io-2.4.jar selenium-htmlunit-driver-2.48.2.jar selenium-support-2.48
+ .2.jar htmlunit-2.18.jar xalan-2.7.2.jar serializer-2.7.2.jar xml-api
+ s-1.4.01.jar commons-collections-3.2.1.jar commons-lang3-3.4.jar http
+ mime-4.5.jar htmlunit-core-js-2.17.jar xercesImpl-2.11.0.jar nekohtml
+ -1.9.22.jar cssparser-0.9.16.jar sac-1.3.jar websocket-client-9.2.12.
+ v20150709.jar jetty-util-9.2.12.v20150709.jar jetty-io-9.2.12.v201507
+ 09.jar websocket-common-9.2.12.v20150709.jar websocket-api-9.2.12.v20
+ 150709.jar selenium-firefox-driver-2.48.2.jar selenium-ie-driver-2.48
+ .2.jar selenium-safari-driver-2.48.2.jar webbit-0.4.14.jar netty-3.5.
+ 2.Final.jar selenium-leg-rc-2.48.2.jar selenium-java-2.48.2.jar selen
+ ium-chrome-driver-2.48.2.jar selenium-remote-driver-2.48.2.jar cglib-
+ nodep-2.1_3.jar gson-2.3.1.jar selenium-api-2.48.2.jar guava-18.0.jar
+  httpclient-4.5.1.jar httpcore-4.4.3.jar commons-logging-1.2.jar comm
+ ons-codec-1.10.jar commons-exec-1.3.jar jna-4.1.0.jar jna-platform-4.
+ 1.0.jar selenium-edge-driver-2.48.2.jar commons-io-2.4.jar selenium-h
+ tmlunit-driver-2.48.2.jar selenium-support-2.48.2.jar htmlunit-2.18.j
+ ar xalan-2.7.2.jar serializer-2.7.2.jar xml-apis-1.4.01.jar commons-c
+ ollections-3.2.1.jar commons-lang3-3.4.jar httpmime-4.5.jar htmlunit-
+ core-js-2.17.jar xercesImpl-2.11.0.jar nekohtml-1.9.22.jar cssparser-
+ 0.9.16.jar sac-1.3.jar websocket-client-9.2.12.v20150709.jar jetty-ut
+ il-9.2.12.v20150709.jar jetty-io-9.2.12.v20150709.jar websocket-commo
+ n-9.2.12.v20150709.jar websocket-api-9.2.12.v20150709.jar selenium-fi
+ refox-driver-2.48.2.jar selenium-ie-driver-2.48.2.jar selenium-safari
+ -driver-2.48.2.jar webbit-0.4.14.jar netty-3.5.2.Final.jar selenium-l
+ eg-rc-2.48.2.jar selenium-java-2.48.2.jar selenium-chrome-driver-2.48
+ .2.jar selenium-remote-driver-2.48.2.jar cglib-nodep-2.1_3.jar gson-2
+ .3.1.jar selenium-api-2.48.2.jar guava-18.0.jar httpclient-4.5.1.jar 
+ httpcore-4.4.3.jar commons-logging-1.2.jar commons-codec-1.10.jar com
+ mons-exec-1.3.jar jna-4.1.0.jar jna-platform-4.1.0.jar selenium-edge-
+ driver-2.48.2.jar commons-io-2.4.jar selenium-htmlunit-driver-2.48.2.
+ jar selenium-support-2.48.2.jar htmlunit-2.18.jar xalan-2.7.2.jar ser
+ ializer-2.7.2.jar xml-apis-1.4.01.jar commons-collections-3.2.1.jar c
+ ommons-lang3-3.4.jar httpmime-4.5.jar htmlunit-core-js-2.17.jar xerce
+ sImpl-2.11.0.jar nekohtml-1.9.22.jar cssparser-0.9.16.jar sac-1.3.jar
+  websocket-client-9.2.12.v20150709.jar jetty-util-9.2.12.v20150709.ja
+ r jetty-io-9.2.12.v20150709.jar websocket-common-9.2.12.v20150709.jar
+  websocket-api-9.2.12.v20150709.jar selenium-firefox-driver-2.48.2.ja
+ r selenium-ie-driver-2.48.2.jar selenium-safari-driver-2.48.2.jar web
+ bit-0.4.14.jar netty-3.5.2.Final.jar selenium-leg-rc-2.48.2.jar selen
+ ium-java-2.48.2.jar selenium-chrome-driver-2.48.2.jar selenium-remote
+ -driver-2.48.2.jar cglib-nodep-2.1_3.jar gson-2.3.1.jar selenium-api-
+ 2.48.2.jar guava-18.0.jar httpclient-4.5.1.jar httpcore-4.4.3.jar com
+ mons-logging-1.2.jar commons-codec-1.10.jar commons-exec-1.3.jar jna-
+ 4.1.0.jar jna-platform-4.1.0.jar selenium-edge-driver-2.48.2.jar comm
+ ons-io-2.4.jar selenium-htmlunit-driver-2.48.2.jar selenium-support-2
+ .48.2.jar htmlunit-2.18.jar xalan-2.7.2.jar serializer-2.7.2.jar xml-
+ apis-1.4.01.jar commons-collections-3.2.1.jar commons-lang3-3.4.jar h
+ ttpmime-4.5.jar htmlunit-core-js-2.17.jar xercesImpl-2.11.0.jar nekoh
+ tml-1.9.22.jar cssparser-0.9.16.jar sac-1.3.jar websocket-client-9.2.
+ 12.v20150709.jar jetty-util-9.2.12.v20150709.jar jetty-io-9.2.12.v201
+ 50709.jar websocket-common-9.2.12.v20150709.jar websocket-api-9.2.12.
+ v20150709.jar selenium-firefox-driver-2.48.2.jar selenium-ie-driver-2
+ .48.2.jar selenium-safari-driver-2.48.2.jar webbit-0.4.14.jar netty-3
+ .5.2.Final.jar selenium-leg-rc-2.48.2.jar selenium-java-2.48.2.jar se
+ lenium-chrome-driver-2.48.2.jar selenium-remote-driver-2.48.2.jar cgl
+ ib-nodep-2.1_3.jar gson-2.3.1.jar selenium-api-2.48.2.jar guava-18.0.
+ jar httpclient-4.5.1.jar httpcore-4.4.3.jar commons-logging-1.2.jar c
+ ommons-codec-1.10.jar commons-exec-1.3.jar jna-4.1.0.jar jna-platform
+ -4.1.0.jar selenium-edge-driver-2.48.2.jar commons-io-2.4.jar seleniu
+ m-htmlunit-driver-2.48.2.jar selenium-support-2.48.2.jar htmlunit-2.1
+ 8.jar xalan-2.7.2.jar serializer-2.7.2.jar xml-apis-1.4.01.jar common
+ s-collections-3.2.1.jar commons-lang3-3.4.jar httpmime-4.5.jar htmlun
+ it-core-js-2.17.jar xercesImpl-2.11.0.jar nekohtml-1.9.22.jar csspars
+ er-0.9.16.jar sac-1.3.jar websocket-client-9.2.12.v20150709.jar jetty
+ -util-9.2.12.v20150709.jar jetty-io-9.2.12.v20150709.jar websocket-co
+ mmon-9.2.12.v20150709.jar websocket-api-9.2.12.v20150709.jar selenium
+ -firefox-driver-2.48.2.jar selenium-ie-driver-2.48.2.jar selenium-saf
+ ari-driver-2.48.2.jar webbit-0.4.14.jar netty-3.5.2.Final.jar seleniu
+ m-leg-rc-2.48.2.jar selenium-java-2.48.2.jar selenium-chrome-driver-2
+ .48.2.jar selenium-remote-driver-2.48.2.jar cglib-nodep-2.1_3.jar gso
+ n-2.3.1.jar selenium-api-2.48.2.jar guava-18.0.jar httpclient-4.5.1.j
+ ar httpcore-4.4.3.jar commons-logging-1.2.jar commons-codec-1.10.jar 
+ commons-exec-1.3.jar jna-4.1.0.jar jna-platform-4.1.0.jar selenium-ed
+ ge-driver-2.48.2.jar commons-io-2.4.jar selenium-htmlunit-driver-2.48
+ .2.jar selenium-support-2.48.2.jar htmlunit-2.18.jar xalan-2.7.2.jar 
+ serializer-2.7.2.jar xml-apis-1.4.01.jar commons-collections-3.2.1.ja
+ r commons-lang3-3.4.jar httpmime-4.5.jar htmlunit-core-js-2.17.jar xe
+ rcesImpl-2.11.0.jar nekohtml-1.9.22.jar cssparser-0.9.16.jar sac-1.3.
+ jar websocket-client-9.2.12.v20150709.jar jetty-util-9.2.12.v20150709
+ .jar jetty-io-9.2.12.v20150709.jar websocket-common-9.2.12.v20150709.
+ jar websocket-api-9.2.12.v20150709.jar selenium-firefox-driver-2.48.2
+ .jar selenium-ie-driver-2.48.2.jar selenium-safari-driver-2.48.2.jar 
+ webbit-0.4.14.jar netty-3.5.2.Final.jar selenium-leg-rc-2.48.2.jar se
+ lenium-java-2.48.2.jar selenium-chrome-driver-2.48.2.jar selenium-rem
+ ote-driver-2.48.2.jar cglib-nodep-2.1_3.jar gson-2.3.1.jar selenium-a
+ pi-2.48.2.jar guava-18.0.jar httpclient-4.5.1.jar httpcore-4.4.3.jar 
+ commons-logging-1.2.jar commons-codec-1.10.jar commons-exec-1.3.jar j
+ na-4.1.0.jar jna-platform-4.1.0.jar selenium-edge-driver-2.48.2.jar c
+ ommons-io-2.4.jar selenium-htmlunit-driver-2.48.2.jar selenium-suppor
+ t-2.48.2.jar htmlunit-2.18.jar xalan-2.7.2.jar serializer-2.7.2.jar x
+ ml-apis-1.4.01.jar commons-collections-3.2.1.jar commons-lang3-3.4.ja
+ r httpmime-4.5.jar htmlunit-core-js-2.17.jar xercesImpl-2.11.0.jar ne
+ kohtml-1.9.22.jar cssparser-0.9.16.jar sac-1.3.jar websocket-client-9
+ .2.12.v20150709.jar jetty-util-9.2.12.v20150709.jar jetty-io-9.2.12.v
+ 20150709.jar websocket-common-9.2.12.v20150709.jar websocket-api-9.2.
+ 12.v20150709.jar selenium-firefox-driver-2.48.2.jar selenium-ie-drive
+ r-2.48.2.jar selenium-safari-driver-2.48.2.jar webbit-0.4.14.jar nett
+ y-3.5.2.Final.jar selenium-leg-rc-2.48.2.jar selenium-java-2.48.2.jar
+  selenium-chrome-driver-2.48.2.jar selenium-remote-driver-2.48.2.jar 
+ cglib-nodep-2.1_3.jar gson-2.3.1.jar selenium-api-2.48.2.jar guava-18
+ .0.jar httpclient-4.5.1.jar httpcore-4.4.3.jar commons-logging-1.2.ja
+ r commons-codec-1.10.jar commons-exec-1.3.jar jna-4.1.0.jar jna-platf
+ orm-4.1.0.jar selenium-edge-driver-2.48.2.jar commons-io-2.4.jar sele
+ nium-htmlunit-driver-2.48.2.jar selenium-support-2.48.2.jar htmlunit-
+ 2.18.jar xalan-2.7.2.jar serializer-2.7.2.jar xml-apis-1.4.01.jar com
+ mons-collections-3.2.1.jar commons-lang3-3.4.jar httpmime-4.5.jar htm
+ lunit-core-js-2.17.jar xercesImpl-2.11.0.jar nekohtml-1.9.22.jar cssp
+ arser-0.9.16.jar sac-1.3.jar websocket-client-9.2.12.v20150709.jar je
+ tty-util-9.2.12.v20150709.jar jetty-io-9.2.12.v20150709.jar websocket
+ -common-9.2.12.v20150709.jar websocket-api-9.2.12.v20150709.jar selen
+ ium-firefox-driver-2.48.2.jar selenium-ie-driver-2.48.2.jar selenium-
+ safari-driver-2.48.2.jar webbit-0.4.14.jar netty-3.5.2.Final.jar sele
+ nium-leg-rc-2.48.2.jar selenium-java-2.48.2.jar selenium-chrome-drive
+ r-2.48.2.jar selenium-remote-driver-2.48.2.jar cglib-nodep-2.1_3.jar 
+ gson-2.3.1.jar selenium-api-2.48.2.jar guava-18.0.jar httpclient-4.5.
+ 1.jar httpcore-4.4.3.jar commons-logging-1.2.jar commons-codec-1.10.j
+ ar commons-exec-1.3.jar jna-4.1.0.jar jna-platform-4.1.0.jar selenium
+ -edge-driver-2.48.2.jar commons-io-2.4.jar selenium-htmlunit-driver-2
+ .48.2.jar selenium-support-2.48.2.jar htmlunit-2.18.jar xalan-2.7.2.j
+ ar serializer-2.7.2.jar xml-apis-1.4.01.jar commons-collections-3.2.1
+ .jar commons-lang3-3.4.jar httpmime-4.5.jar htmlunit-core-js-2.17.jar
+  xercesImpl-2.11.0.jar nekohtml-1.9.22.jar cssparser-0.9.16.jar sac-1
+ .3.jar websocket-client-9.2.12.v20150709.jar jetty-util-9.2.12.v20150
+ 709.jar jetty-io-9.2.12.v20150709.jar websocket-common-9.2.12.v201507
+ 09.jar websocket-api-9.2.12.v20150709.jar selenium-firefox-driver-2.4
+ 8.2.jar selenium-ie-driver-2.48.2.jar selenium-safari-driver-2.48.2.j
+ ar webbit-0.4.14.jar netty-3.5.2.Final.jar selenium-leg-rc-2.48.2.jar
+  selenium-java-2.48.2.jar selenium-chrome-driver-2.48.2.jar selenium-
+ remote-driver-2.48.2.jar cglib-nodep-2.1_3.jar gson-2.3.1.jar seleniu
+ m-api-2.48.2.jar guava-18.0.jar httpclient-4.5.1.jar httpcore-4.4.3.j
+ ar commons-logging-1.2.jar commons-codec-1.10.jar commons-exec-1.3.ja
+ r jna-4.1.0.jar jna-platform-4.1.0.jar selenium-edge-driver-2.48.2.ja
+ r commons-io-2.4.jar selenium-htmlunit-driver-2.48.2.jar selenium-sup
+ port-2.48.2.jar htmlunit-2.18.jar xalan-2.7.2.jar serializer-2.7.2.ja
+ r xml-apis-1.4.01.jar commons-collections-3.2.1.jar commons-lang3-3.4
+ .jar httpmime-4.5.jar htmlunit-core-js-2.17.jar xercesImpl-2.11.0.jar
+  nekohtml-1.9.22.jar cssparser-0.9.16.jar sac-1.3.jar websocket-clien
+ t-9.2.12.v20150709.jar jetty-util-9.2.12.v20150709.jar jetty-io-9.2.1
+ 2.v20150709.jar websocket-common-9.2.12.v20150709.jar websocket-api-9
+ .2.12.v20150709.jar selenium-firefox-driver-2.48.2.jar selenium-ie-dr
+ iver-2.48.2.jar selenium-safari-driver-2.48.2.jar webbit-0.4.14.jar n
+ etty-3.5.2.Final.jar selenium-leg-rc-2.48.2.jar twitter4j-core-4.0.4.
+ jar mysql-connector-java-5.1.38.jar mysql-connector-java-5.1.38.jar m
+ ysql-connector-java-5.1.38.jar mysql-connector-java-5.1.38.jar mysql-
+ connector-java-5.1.38.jar mysql-connector-java-5.1.38.jar mysql-conne
+ ctor-java-5.1.38.jar mysql-connector-java-5.1.38.jar mysql-connector-
+ java-5.1.38.jar mysql-connector-java-5.1.38.jar mysql-connector-java-
+ 5.1.38.jar
 Main-Class: ana.Ana
 

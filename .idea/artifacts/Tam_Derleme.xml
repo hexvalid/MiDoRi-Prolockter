@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="Tam Derleme">
+    <output-path>$PROJECT_DIR$/bin</output-path>
+    <root id="root">
+      <element id="archive" name="MiDoRi-Prolockter.jar">
+        <element id="module-output" name="MiDoRi-Prolockter" />
+      </element>
+      <element id="library" level="project" name="org.seleniumhq.selenium:selenium-java:Latest" />
+      <element id="library" level="project" name="twitter4j" />
+      <element id="library" level="project" name="mysql:mysql-connector-java:Latest" />
+    </root>
+  </artifact>
+</component>
