@@ -23,7 +23,7 @@ public class Is {
             Log.yaz("Tweet atıldı", BASARILI);
         } catch (TwitterException e) {
             if (e.toString().contains("Status is a duplicate"))
-                Log.yaz("Tweet atılamadı: Bunu zaten tweetlemişsin!" + e, UYARI);
+                Log.yaz("Tweet atılamadı: Bunu zaten tweetlemişsin!", UYARI);
             else
                 Log.yaz("Tweet atılamadı: " + e, HATA);
         }

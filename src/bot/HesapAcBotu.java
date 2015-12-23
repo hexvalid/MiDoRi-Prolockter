@@ -205,7 +205,7 @@ public class HesapAcBotu {
                     Log.yaz("Oh! Olamaz! Beklenmeyen bir hata ile karşılandı! Yani şu şey: " + e, HATA);
                 Log.yaz("Kritik bir hata karşılaşıldığı için herşey devre dışı bırakılacak!", UYARI);
                 Log.yaz("Tarayıcılar devre dışı bırakılıyor...", UYARI);
-                if (!Eposta.driver.equals(null) && !Eposta.driver.toString().contains("(null)")) {
+                if (!Eposta.driver.equals(null) && !Eposta.driver.toString().contains("null")) {
                     Eposta.driver.close();
                     Log.yaz("E-posta tarayıcısı kapatıldı", UYARI);
                 }
