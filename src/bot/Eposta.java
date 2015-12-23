@@ -13,7 +13,7 @@ import static araclar.Log.Tur.BILGI;
  */
 public class Eposta {
 
-    static WebDriver driver;
+    public static WebDriver driver;
 
     public static String yeniAc() {
         Log.yaz("Yeni E-posta hesabı hazırlanıyor...", BILGI);

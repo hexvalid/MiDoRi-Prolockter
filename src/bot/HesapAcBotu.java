@@ -50,8 +50,8 @@ public class HesapAcBotu {
 
                     long baslamazamani = System.currentTimeMillis();
                     if (!HMA.bagliMi()) {
-                       if (Veritabani.sqlBaglantisiVarmi())
-                           Veritabani.sqlKapat();
+                        if (Veritabani.sqlBaglantisiVarmi())
+                            Veritabani.sqlKapat();
                         HMA.baglan();
                         Veritabani.sqlBaglan();
                     }
@@ -170,20 +170,28 @@ public class HesapAcBotu {
                                         Veritabani.DURUMMODEL.REALISTIC, EPOSTA, "RATER 4 SERVER");
                             } else {
                                 Log.yaz("Hesabın doğrulaması yapılamadı", HATA);
-                                Eposta.driver.close();
+                                try {
+                                    driver.quit();
+                                    Log.yaz("Ana tarayıcı kapatıldı", UYARI);
+                                } catch (org.openqa.selenium.remote.SessionNotFoundException e2) {
+                                }
                             }
                         }
                     } else {
                         Log.yaz("Bu IP'den daha fazla hesap alınamıyor", UYARI);
                         Log.yaz("Tarayıcılar devre dışı bırakılıyor...", UYARI);
-                        if (!Eposta.driver.toString().contains("(null)")) {
-                            Eposta.driver.close();
+                        try {
+                            Eposta.driver.quit();
                             Log.yaz("E-posta tarayıcısı kapatıldı", UYARI);
+                        } catch (org.openqa.selenium.remote.SessionNotFoundException e1) {
                         }
-                        if (!driver.toString().contains("(null)")) {
-                            driver.close();
+
+                        try {
+                            driver.quit();
                             Log.yaz("Ana tarayıcı kapatıldı", UYARI);
+                        } catch (org.openqa.selenium.remote.SessionNotFoundException e2) {
                         }
+
                         if (Veritabani.sqlBaglantisiVarmi()) {
                             Veritabani.sqlKapat();
                         }
@@ -205,14 +213,20 @@ public class HesapAcBotu {
                     Log.yaz("Oh! Olamaz! Beklenmeyen bir hata ile karşılandı! Yani şu şey: " + e, HATA);
                 Log.yaz("Kritik bir hata karşılaşıldığı için herşey devre dışı bırakılacak!", UYARI);
                 Log.yaz("Tarayıcılar devre dışı bırakılıyor...", UYARI);
-                if (!Eposta.driver.equals(null) && !Eposta.driver.toString().contains("null")) {
-                    Eposta.driver.close();
+
+                try {
+                    Eposta.driver.quit();
                     Log.yaz("E-posta tarayıcısı kapatıldı", UYARI);
+                } catch (org.openqa.selenium.remote.SessionNotFoundException e1) {
                 }
-                if (!driver.toString().contains("(null)")) {
-                    driver.close();
+
+                try {
+                    driver.quit();
                     Log.yaz("Ana tarayıcı kapatıldı", UYARI);
+                } catch (org.openqa.selenium.remote.SessionNotFoundException e2) {
                 }
+
+
                 if (Veritabani.sqlBaglantisiVarmi()) {
                     Veritabani.sqlKapat();
                 }

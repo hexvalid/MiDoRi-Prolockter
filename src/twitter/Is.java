@@ -34,7 +34,10 @@ public class Is {
             hesap.createFriendship(takipedilecekhesap);
             Log.yaz("Kullanıcı takip edildi: @" + takipedilecekhesap, BASARILI);
         } catch (TwitterException e) {
-            Log.yaz("Kullanıcı takip edilemedi: " + e, HATA);
+            if (e.toString().contains("already"))
+                Log.yaz("Kullanıcı takip edilemedi: Zaten takip ediyorsun!", UYARI);
+            else
+                Log.yaz("Kullanıcı takip edilemedi: " + e, HATA);
         }
     }
 

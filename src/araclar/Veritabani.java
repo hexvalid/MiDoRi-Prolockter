@@ -1,6 +1,7 @@
 package araclar;
 
 import ana.Ana;
+import bot.Eposta;
 import vpn.HMA;
 
 import java.sql.*;
@@ -35,9 +36,12 @@ public class Veritabani {
     public static Connection SQL_BAGLANTISI = null;
 
     public static void main(String[] args) {
-        System.out.println(sqlBaglantisiVarmi());
-        sqlBaglan();
-        System.out.println(Veritabani.rastgeleTakipEdilecekKullanici());
+        System.out.println(Eposta.yeniAc());
+
+        System.out.println(Eposta.driver.getCurrentUrl());
+    Eposta.driver.quit();
+        System.out.println(Eposta.driver.getCurrentUrl());
+
 
     }
 
