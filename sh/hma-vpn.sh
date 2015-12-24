@@ -127,7 +127,7 @@ function stop_hma
 
 	local RC=$?
 	if [ $RC -eq 0 ]; then
-		sleep 2
+		sleep 1
 	fi
 	return $RC
 }

@@ -74,7 +74,7 @@ public class HMA {
     public static void baglantiyiKes() {
         try {
             Log.yaz("VPN bağlantısı kesiliyor...", BILGI);
-            String[] cmd = {"/bin/bash", "-c", "echo " + SUDO_SIFRESI + "| sudo -S  sh/hma-vpn.sh -x"};
+            String[] cmd = {"/bin/bash", "-c", "echo " + SUDO_SIFRESI + "| sudo -S  killall openvpn"};
             ProcessBuilder pb = new ProcessBuilder(cmd);
             Process p = null;
             p = pb.start();
