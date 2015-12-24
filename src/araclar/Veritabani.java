@@ -4,6 +4,8 @@ import ana.Ana;
 import bot.Eposta;
 import vpn.HMA;
 
+import java.net.URL;
+import java.net.URLConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,7 +41,7 @@ public class Veritabani {
         System.out.println(Eposta.yeniAc());
 
         System.out.println(Eposta.driver.getCurrentUrl());
-    Eposta.driver.quit();
+        Eposta.driver.quit();
         System.out.println(Eposta.driver.getCurrentUrl());
 
 
@@ -211,6 +213,20 @@ public class Veritabani {
             Log.yaz("Veritabanından rastgele takip edilecek kullanıcı alınamadı: " + e, HATA);
         }
         return liste.get(0);
+    }
+
+    public static boolean internetBaglantisiVarmi() {
+        Log.yaz("İnternet bağlantısı test ediliyor...", BILGI);
+        try {
+            final URL url = new URL("https://mobile.twitter.com/login");
+            final URLConnection conn = url.openConnection();
+            conn.connect();
+            Log.yaz("İnternet bağlantısı var", BASARILI);
+            return true;
+        } catch (Exception e) {
+            Log.yaz("İnternet bağlantısı bulunamadı!", HATA);
+            return false;
+        }
     }
 
 }

@@ -419,10 +419,19 @@ full_cleanup
 
 # Download serverlist
 echo "Obtaining list of servers..."
-exec < serverlar
+$curl https://securenetconnection.com/vpnconfig/servers-cli.php 2>/dev/null| grep -i -e "$grep" | grep -i -e "$proto" > /tmp/hma-servers
+exec < /tmp/hma-servers
 
+# If serverlist empty 
+if [[ "$(cat /tmp/hma-servers)" == "" ]]; then
+if [[ "$($curl https://securenetconnection.com/vpnconfig/servers-cli.php)" == "" ]] ; then
+	echo "Unable to fetch serverlist!"
+	echo "Please check your internet connection!"
+	exit
+fi
+fi
 
-
+rm /tmp/hma-servers
 
 while read server
 do

@@ -48,7 +48,7 @@ public class HMA {
         try {
             //TODO: ŞİFRELER GLOBAL STRING'DE OLACAK!
             Log.yaz("VPN'e bağlanılıyor...", BILGI);
-            String[] cmd = {"/bin/bash", "-c", "echo " + SUDO_SIFRESI + "| sudo -S  sh/hma-vpn.sh -c sertifika"};
+            String[] cmd = {"/bin/bash", "-c", "echo " + SUDO_SIFRESI + "| sudo -S  sh/hma-vpn.sh -c sertifika 'Germany' "};
             ProcessBuilder pb = new ProcessBuilder(cmd);
             Process p = null;
             p = pb.start();
@@ -58,6 +58,8 @@ public class HMA {
                 Log.yaz(line, CIKTI);
                 if (line.contains("Connected")) {
                     Log.yaz("VPN'e bağlandı", BASARILI);
+                    p.destroy();
+                    reader.close();
                     return true;
                 }
             }
@@ -82,6 +84,8 @@ public class HMA {
                 Log.yaz(line, CIKTI);
             }
             Log.yaz("VPN bağlantısı kesildi", BASARILI);
+            p.destroy();
+            reader.close();
             Thread.sleep(1000);
         } catch (IOException | InterruptedException e) {
             Log.yaz("VPN bağlantısı kesilemedi: ", HATA);
@@ -109,13 +113,19 @@ public class HMA {
                 Matcher matcher = pattern.matcher(buff);
                 if (matcher.find()) {
                     Log.yaz("IP Adresi alındı", BASARILI);
+                    p.destroy();
+                    reader.close();
                     return matcher.group();
                 } else {
                     Log.yaz("IP Adresi alınamadı (sıfır döndü)", HATA);
+                    p.destroy();
+                    reader.close();
                     return "0.0.0.0";
                 }
             } else {
                 Log.yaz("IP Adresi alınamadı (sıfır döndü)", HATA);
+                p.destroy();
+                reader.close();
                 return "0.0.0.0";
             }
         } catch (IOException e) {

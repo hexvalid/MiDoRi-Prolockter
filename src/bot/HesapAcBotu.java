@@ -28,7 +28,7 @@ import static araclar.Log.Tur.*;
 public class HesapAcBotu {
 
     //DEĞİŞKENLER!
-    static int ZAMAN_ASIMI = 200;
+    static int ZAMAN_ASIMI = 250;
     static int ZAMAN_ASIMI_TARAYICI = 25;
 
     //////////////
@@ -42,11 +42,11 @@ public class HesapAcBotu {
     public static void main(String[] args) {
         //TODO: /usr/bin/chromedriver kontrolü yapılacak!
         //TODO: İnternet testi gerek
+        //TODO: RAM Yemeyecek!: ÇÖZÜLDÜ
         while (true) {
             try {
                 Future<?> f = Executors.newSingleThreadExecutor().submit((Runnable) () -> {
                     Log.yaz("Yeni hesap açma işi başladı ", BILGI);
-
 
                     long baslamazamani = System.currentTimeMillis();
                     if (!HMA.bagliMi()) {
