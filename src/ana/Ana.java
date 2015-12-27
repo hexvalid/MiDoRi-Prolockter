@@ -2,6 +2,7 @@ package ana;
 
 import araclar.Kontrol;
 import araclar.Veritabani;
+import bot.HesapAcBotu;
 import twitter.Ayar;
 import twitter.Hesap;
 import twitter.APILockter;
@@ -83,7 +84,7 @@ public class Ana {
             System.out.println("Görev tamamlandı. Programdan çıkılıyor...");
             System.exit(0);
         } else if (num == 8) {
-//            HesapAcBotu.(null);
+            HesapAcBotu.main(null);
         } else if (num == 9) {
             System.out.println("Programdan çıkılıyor...");
             System.exit(0);

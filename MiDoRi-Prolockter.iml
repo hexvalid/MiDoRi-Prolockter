@@ -10,7 +10,6 @@
     <orderEntry type="library" name="twitter4j" level="project" />
     <orderEntry type="library" name="selenium-java" level="project" />
     <orderEntry type="library" name="mysql:mysql-connector-java:Latest" level="project" />
-    <orderEntry type="library" name="com.github.detro.ghostdriver:phantomjsdriver:1.1.0" level="project" />
     <orderEntry type="library" name="org.seleniumhq.selenium:selenium-java:Latest" level="project" />
   </component>
 </module>

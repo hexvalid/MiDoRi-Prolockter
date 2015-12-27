@@ -7,6 +7,7 @@
       </element>
       <element id="library" level="project" name="twitter4j" />
       <element id="library" level="project" name="mysql:mysql-connector-java:Latest" />
+      <element id="library" level="project" name="org.seleniumhq.selenium:selenium-java:Latest" />
     </root>
   </artifact>
 </component>
