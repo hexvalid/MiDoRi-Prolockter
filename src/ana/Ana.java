@@ -3,10 +3,10 @@ package ana;
 import araclar.Kontrol;
 import araclar.Veritabani;
 import bot.HesapAcBotu;
+import org.openqa.selenium.WebDriver;
+import selenium.Tarayici;
+import selenium.WebLockter;
 import twitter.Ayar;
-import twitter.Hesap;
-import twitter.APILockter;
-import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import vpn.HMA;
 
@@ -18,6 +18,7 @@ import java.util.Scanner;
 
 public class Ana {
     public static String VERSIYON = "v1.98";
+
     public static void main(String[] args) throws IOException, TwitterException {
         HMA.SUDO_SIFRESI = "rkn42rdm";
         System.out.println("");
@@ -71,11 +72,11 @@ public class Ana {
 
             for (int i = 1; i < liste.size(); i++) {
                 List<String> kullanici = Veritabani.kullaniciTokeniAl(liste.get(i));
-              //  System.out.println(kullanici.get(1) + kullanici.get(2));
-                Twitter baglihesap = Hesap.getir(kullanici.get(1), kullanici.get(2), kullanici.get(3), kullanici.get(4));
-                APILockter.rtYap(baglihesap, statuskodu);
-               APILockter.favYap(baglihesap, statuskodu);
-             //   APILockter.takipEt(baglihesap, "yilmazeraziz");
+                //  System.out.println(kullanici.get(1) + kullanici.get(2));
+                WebDriver driver = Tarayici.Light(false, true);
+                WebLockter.girisYap(driver, kullanici.get(0), kullanici.get(6), kullanici.get(5));
+                WebLockter.takipEt(driver, "daulkim_");
+                driver.quit();
             }
             System.out.println("Görev tamamlandı. Programdan çıkılıyor...");
             System.exit(0);

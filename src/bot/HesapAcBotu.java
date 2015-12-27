@@ -139,15 +139,13 @@ public class HesapAcBotu {
 
                             APILockter.bioGuncelle(hesap, Veritabani.rastgeleBio());
 
-                            for (int i = 1; i < new Random().nextInt(4) + 1; i++) {
-                                APILockter.tweetAt(hesap, Veritabani.rastgeleTweet());
-                                //TODO: Aynı tweet'i atmamalı!
-                            }
+                            //TODO: Aynı tweet'i atmamalı!
+                    /*
                             //TODO: DEĞİŞKENLER SAYI OLACAK--
                             for (int i = 1; i < new Random().nextInt(6) + 4; i++) {
                                 APILockter.takipEt(hesap, Veritabani.rastgeleTakipEdilecekKullanici());
                             }
-
+*/
                             Log.yaz("Hesabın doğrulaması yapılıyor...", BILGI);
 
                             if (EpostaBotu.dogrula()) {

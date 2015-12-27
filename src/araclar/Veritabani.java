@@ -138,7 +138,8 @@ public class Veritabani {
     public static List<String> kullaniciTokeniAl(String id) {
         List<String> liste = new ArrayList<String>();
         try {
-            String sql = "SELECT KULLANICI_ADI, TOKEN, SECRET_TOKEN, CUNSOMER_KEY, CUNSOMER_SECRET FROM hesaplar WHERE id = " + id + ";";
+            String sql = "SELECT KULLANICI_ADI, TOKEN, SECRET_TOKEN," +
+                    "CUNSOMER_KEY, CUNSOMER_SECRET, EMAIL_ADRESI, SIFRE FROM hesaplar WHERE id = " + id + ";";
             ResultSet sonuc = SQL_STS.executeQuery(sql);
             while (sonuc.next()) {
                 liste.add(sonuc.getString("KULLANICI_ADI"));
@@ -146,6 +147,9 @@ public class Veritabani {
                 liste.add(sonuc.getString("SECRET_TOKEN"));
                 liste.add(sonuc.getString("CUNSOMER_KEY"));
                 liste.add(sonuc.getString("CUNSOMER_SECRET"));
+                liste.add(sonuc.getString("EMAIL_ADRESI"));
+                liste.add(sonuc.getString("SIFRE"));
+
             }
             Log.yaz("Veritabanından kullanıcı tokeni alındı", BASARILI);
         } catch (SQLException e) {

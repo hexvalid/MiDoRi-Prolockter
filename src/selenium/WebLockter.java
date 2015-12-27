@@ -14,7 +14,7 @@ import static araclar.Log.Tur.*;
 public class WebLockter {
 
     public static boolean girisYap(WebDriver driver, String kullaniciadi, String sifre, String eposta) {
-        //TODO: Limit yazısını görürse tel no istiyor demektir. gerekeni yapacak
+        //TODO: Limit yazısını görürse tel. no. istiyor demektir. Gerekeni yapacak!
         //guest url'sine gidiyorsa ip engellenmiş demektir değiştirilecek ip
         Log.yaz("Giriş yapılıyor...", BILGI);
         driver.get("https://mobile.twitter.com/session/new");
