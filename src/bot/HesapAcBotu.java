@@ -45,9 +45,7 @@ public class HesapAcBotu {
             try {
                 Future<?> f = Executors.newSingleThreadExecutor().submit((Runnable) () -> {
                     Tarayici.hepsiniKapat();
-
                     Log.yaz("Yeni hesap açma işi başladı ", BILGI);
-
                     long baslamazamani = System.currentTimeMillis();
                     if (!HMA.bagliMi()) {
                         if (Veritabani.sqlBaglantisiVarmi())
@@ -57,9 +55,7 @@ public class HesapAcBotu {
                     }
                     if (!Veritabani.sqlBaglantisiVarmi())
                         Veritabani.sqlBaglan();
-
                     WebDriver driver = Tarayici.Light(false, false);
-
                     WebDriverWait zamanasimi = new WebDriverWait(driver, ZAMAN_ASIMI_TARAYICI);
 
                     Log.yaz("Kayıt sayfası yükleniyor...", BILGI);
@@ -97,7 +93,8 @@ public class HesapAcBotu {
                                     new Random().nextInt(100000) + 1);
 
                             WebElement _uygulamaaciklamasi = driver.findElement(By.xpath("//*[@id=\"edit-description\"]"));
-                            _uygulamaaciklamasi.sendKeys("For education.");
+                            _uygulamaaciklamasi.sendKeys(Jenerator.rastgele(Jenerator.ListDosyalari.star) + " " +
+                                    new Random().nextInt(100000) + 1);
 
                             WebElement _uygulamaurlsi = driver.findElement(By.xpath("//*[@id=\"edit-url\"]"));
                             _uygulamaurlsi.sendKeys("http://facebook.com/" + KULLANICI_ADI.toLowerCase());
@@ -139,21 +136,21 @@ public class HesapAcBotu {
                             APILockter.avatarGuncelle(hesap, Jenerator.rastgeleAvatar());
                             APILockter.bannerGuncelle(hesap, Jenerator.rastgeleBanner());
 
-                            APILockter.bioGuncelle(hesap, Veritabani.rastgeleBio());
+                           // APILockter.bioGuncelle(hesap, Veritabani.rastgeleBio());
 
                             //TODO: Aynı tweet'i atmamalı!
                     /*
                             //TODO: DEĞİŞKENLER SAYI OLACAK--
-                            for (int i = 1; i < new Random().nextInt(6) + 4; i++) {
+                            for (int i = 1; i < new Random().nextIent(6) + 4; i++) {
                                 APILockter.takipEt(hesap, Veritabani.rastgeleTakipEdilecekKullanici());
-                            }
+
 */
                             Log.yaz("Hesabın doğrulaması yapılıyor...", BILGI);
 
                             if (EpostaBotu.dogrula()) {
                                 Veritabani.hesapEkle(KULLANICI_ADI, SIFRE,
                                         TOKEN, SECRETTOKEN, CUNSOMERKEY, CUNSOMERSECRET,
-                                        Veritabani.DURUMMODEL.REALISTIC, EPOSTA, "RATER 4 SERVER");
+                                            Veritabani.DURUMMODEL.REALISTIC, EPOSTA, "RATER 5 NONBIO");
                             } else {
                                 Log.yaz("Hesabın doğrulaması yapılamadı", HATA);
                                 try {

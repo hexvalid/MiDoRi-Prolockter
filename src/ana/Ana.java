@@ -11,6 +11,7 @@ import twitter4j.TwitterException;
 import vpn.HMA;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -19,7 +20,9 @@ import java.util.Scanner;
 public class Ana {
     public static String VERSIYON = "v1.99";
 
-    public static void main(String[] args) throws IOException, TwitterException {
+    public static void main(String[] args) throws IOException, TwitterException, InterruptedException, SQLException {
+
+
         HMA.SUDO_SIFRESI = "rkn42rdm";
         System.out.println("");
         System.out.println("______  MiDoRi  _            _    _            ");
@@ -29,9 +32,10 @@ public class Ana {
         System.out.println("| |  | | | (_) | | (_) | (__|   <| ||  __/ |   ");
         System.out.println("\\_|  |_|  \\___/|_|\\___/ \\___|_|\\_\\\\__\\___|_|   ");
         System.out.println("                                      " + VERSIYON + "\n\n");
+
         Veritabani.internetBaglantisiVarmi();
         boolean LINUX = Kontrol.LinuxMu();
-        System.out.println(Kontrol.BagimlilikKontrolu());
+        boolean bag = Kontrol.BagimlilikKontrolu();
 
         System.out.println("----------------------------------------------");
         System.out.println("ANA MENÜ");
@@ -61,9 +65,10 @@ public class Ana {
 
         int num = in.nextInt();
 
-        if (num == 1) {
-            System.out.println("RT ve Fav yapılacak Tweet'in status kodunu giriniz.");
-            System.out.print("STATUS KODU: ");
+        if (num == 2) {
+
+            System.out.println("Kullanıcı adını giriniz");
+            System.out.print("Kullanıcı adı: ");
             Scanner in2 = new Scanner(System.in);
             String statuskodu = in2.next();
             Veritabani.sqlBaglan();
@@ -74,17 +79,23 @@ public class Ana {
                 List<String> kullanici = Veritabani.kullaniciTokeniAl(liste.get(i));
                 //  System.out.println(kullanici.get(1) + kullanici.get(2));
                 WebDriver driver = Tarayici.Light(false, true);
-                WebLockter.girisYap(driver, kullanici.get(0), kullanici.get(6), kullanici.get(5));
-                WebLockter.takipEt(driver, "daulkim_");
+                boolean ok = WebLockter.girisYap(driver, kullanici.get(0), kullanici.get(6), kullanici.get(5));
+                if (ok) {
+                    WebLockter.takipEt(driver, statuskodu);
+                }
+                else {
+                    Veritabani.hesapSil(kullanici.get(0));
+                }
                 driver.quit();
             }
             System.out.println("Görev tamamlandı. Programdan çıkılıyor...");
             System.exit(0);
-        } else if (num == 2) {
+        } else if (num == 1) {
             Ayar.ekle();
             System.out.println("Görev tamamlandı. Programdan çıkılıyor...");
             System.exit(0);
         } else if (num == 8) {
+
             HesapAcBotu.main(null);
         } else if (num == 9) {
             System.out.println("Programdan çıkılıyor...");

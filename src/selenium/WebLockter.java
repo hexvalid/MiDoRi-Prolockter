@@ -31,17 +31,23 @@ public class WebLockter {
         } catch (NoSuchElementException e) {
         }
         try {
-            driver.findElement(By.xpath("//*[@id=\"main_content\"]/div/div/a"));
-            Log.yaz("Giriş yapıldı", BASARILI);
-            return true;
-        } catch (NoSuchElementException e) {
-            Log.yaz("Giriş yapılamadı!", HATA);
-            if (driver.getCurrentUrl().contains("guest")) {
-                Log.yaz("Bu IP'den giriş engellendi!", HATA);
-            }
+            driver.findElement(By.xpath("/html/body/div[2]/div/form/input[3]"));
+            Log.yaz("Giriş yapılamadı: Hesap banlanmış", HATA);
             return false;
+        } catch (NoSuchElementException e) {
+            if (driver.getCurrentUrl().contains("guest")) {
+                Log.yaz("Giriş yapılamadı: Bu IP'den giriş engellendi!", HATA);
+                return false;
+
+            } else {
+                Log.yaz("Giriş yapıldı", BASARILI);
+                return true;
+
+
+            }
         }
     }
+
 
     public static void tweetAt(WebDriver driver, String tweet) {
         Log.yaz("Tweet gönderiliyor...", BILGI);
