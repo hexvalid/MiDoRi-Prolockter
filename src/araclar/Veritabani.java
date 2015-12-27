@@ -62,15 +62,7 @@ public class Veritabani {
     }
 
     public static void sqlKapat() {
-        try {
-            SQL_STS.close();
-            SQL_BAGLANTISI.close();
-            SQL_STS = null;
-            SQL_BAGLANTISI = null;
-            Log.yaz("Veritabanı kapatıldı", BILGI);
-        } catch (SQLException e) {
-            Log.yaz("Veritabanı kapatılamadı: " + e, HATA);
-        }
+
     }
 
     public static boolean sqlBaglantisiVarmi() {
