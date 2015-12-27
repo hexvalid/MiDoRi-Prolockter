@@ -17,7 +17,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Ana {
-    public static String VERSIYON = "v1.98";
+    public static String VERSIYON = "v1.99";
 
     public static void main(String[] args) throws IOException, TwitterException {
         HMA.SUDO_SIFRESI = "rkn42rdm";

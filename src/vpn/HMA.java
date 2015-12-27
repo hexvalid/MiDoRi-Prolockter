@@ -1,6 +1,7 @@
 package vpn;
 
 import araclar.Log;
+import araclar.Veritabani;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -87,6 +88,26 @@ public class HMA {
         return false;
     }
 
+    public static void baglanVeTestEt() {
+        boolean baglanti = baglan();
+        while (true) {
+            if (baglanti) {
+                if (Veritabani.internetBaglantisiVarmi()) {
+                    break;
+                } else {
+                    baglantiyiKes();
+                    baglanti = baglan();
+                }
+
+            } else {
+                baglantiyiKes();
+                baglanti = baglan();
+            }
+
+        }
+
+
+    }
 
     public static void baglantiyiKes() {
         try {

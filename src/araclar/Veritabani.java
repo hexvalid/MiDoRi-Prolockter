@@ -51,6 +51,7 @@ public class Veritabani {
                     (VERITABANI_URLSI, VERITABANI_KULLANICI_ADI, VERITABANI_SIFRESI);
             SQL_STS = SQL_BAGLANTISI.createStatement();
             Log.yaz("Veritabanına bağlanıldı", BASARILI);
+            
             return true;
         } catch (ClassNotFoundException e) {
             Log.yaz("Veritabanına bağlanılamadı. Class bulunamadı: " + e, HATA);
@@ -62,7 +63,13 @@ public class Veritabani {
     }
 
     public static void sqlKapat() {
-
+        try {
+            SQL_STS.close();
+            SQL_BAGLANTISI.close();
+            Log.yaz("Veritabanı kapatıldı", BILGI);
+        } catch (SQLException e) {
+            Log.yaz("Veritabanı kapatılamadı: " + e, HATA);
+        }
     }
 
     public static boolean sqlBaglantisiVarmi() {

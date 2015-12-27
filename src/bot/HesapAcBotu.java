@@ -50,7 +50,7 @@ public class HesapAcBotu {
                     if (!HMA.bagliMi()) {
                         if (Veritabani.sqlBaglantisiVarmi())
                             Veritabani.sqlKapat();
-                        HMA.baglan();
+                        HMA.baglanVeTestEt();
                         Veritabani.sqlBaglan();
                     }
                     if (!Veritabani.sqlBaglantisiVarmi())
