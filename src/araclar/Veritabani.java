@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 import static araclar.Log.Tur.*;
 
@@ -51,7 +54,7 @@ public class Veritabani {
                     (VERITABANI_URLSI, VERITABANI_KULLANICI_ADI, VERITABANI_SIFRESI);
             SQL_STS = SQL_BAGLANTISI.createStatement();
             Log.yaz("Veritabanına bağlanıldı", BASARILI);
-            
+
             return true;
         } catch (ClassNotFoundException e) {
             Log.yaz("Veritabanına bağlanılamadı. Class bulunamadı: " + e, HATA);
@@ -223,16 +226,26 @@ public class Veritabani {
 
     public static boolean internetBaglantisiVarmi() {
         Log.yaz("İnternet bağlantısı test ediliyor...", BILGI);
+
         try {
-            final URL url = new URL("https://mobile.twitter.com/login");
-            final URLConnection conn = url.openConnection();
-            conn.connect();
-            Log.yaz("İnternet bağlantısı var", BASARILI);
+            Future<?> fx = Executors.newSingleThreadExecutor().submit((Runnable) () -> {
+                try {
+                    final URL url = new URL("https://mobile.twitter.com/login");
+                    final URLConnection conn = url.openConnection();
+                    conn.connect();
+                    Log.yaz("İnternet bağlantısı var", BASARILI);
+                } catch (Exception e) {
+
+                }
+
+            });
+            fx.get(7, TimeUnit.SECONDS);
             return true;
         } catch (Exception e) {
             Log.yaz("İnternet bağlantısı bulunamadı!", HATA);
             return false;
         }
     }
-
 }
+
+
