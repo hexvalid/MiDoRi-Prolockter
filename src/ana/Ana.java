@@ -37,7 +37,7 @@ public class Ana {
         System.out.println("ANA MENÜ");
         System.out.println("----------------------------------------------");
         System.out.println("Aşağıdan bir fonksiyon numarası seçin ve ENTER'a basınız.");
-        System.out.println("1) Bi Twit'e RT ve/veya Fav gönder [STABİL]");
+        System.out.println("1) Bi Tw1it'e RT ve/veya Fav gönder [STABİL]");
         System.out.println("2) Birine takipçi gönder veya geri al [STABİL]");
         System.out.println("3) Birine seri DM gönder [STABİL DEĞİL]");
         System.out.println("4) Veritabanına elle yeni kullanıcı ekle [BETA]");

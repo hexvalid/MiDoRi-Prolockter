@@ -7,11 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import vpn.HMA;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-import static araclar.Log.Tur.BASARILI;
-import static araclar.Log.Tur.BILGI;
+import static araclar.Log.Tur.*;
 
 /**
  * Created by erkanmdr on 27.12.2015.
@@ -63,5 +66,26 @@ public class Tarayici {
 
         return driver;
 
+    }
+
+    public static void hepsiniKapat() {
+        try {
+            Log.yaz("Tüm tarayıcılar kapatılıyor...", BILGI);
+            String[] cmd = {"/bin/bash", "-c", "echo " + HMA.SUDO_SIFRESI + "| sudo -S  killall light-bin"};
+            ProcessBuilder pb = new ProcessBuilder(cmd);
+            Process p = null;
+            p = pb.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                Log.yaz(line, CIKTI);
+            }
+            Log.yaz("Tüm tarayıcılar kapatıldı", BASARILI);
+            p.destroy();
+            reader.close();
+            Thread.sleep(400);
+        } catch (IOException | InterruptedException e) {
+            Log.yaz("Tüm tarayıcılar kapatılamadı: ", HATA);
+        }
     }
 }

@@ -44,6 +44,8 @@ public class HesapAcBotu {
         while (true) {
             try {
                 Future<?> f = Executors.newSingleThreadExecutor().submit((Runnable) () -> {
+                    Tarayici.hepsiniKapat();
+
                     Log.yaz("Yeni hesap açma işi başladı ", BILGI);
 
                     long baslamazamani = System.currentTimeMillis();
