@@ -99,7 +99,7 @@ public class Veritabani {
             preparedStmt.setString(5, secret_token);
             preparedStmt.setString(6, durum.toString());
             preparedStmt.setTimestamp(7, new Timestamp(System.currentTimeMillis()));
-            preparedStmt.setString(8, HMA.sonIP());
+            preparedStmt.setString(8, HMA.SON_IP);
             preparedStmt.setString(9, email_adresi);
             preparedStmt.setString(10, Ana.VERSIYON);
             preparedStmt.setString(11, cunsomer_key);
