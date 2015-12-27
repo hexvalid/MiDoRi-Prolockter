@@ -2,10 +2,9 @@ package ana;
 
 import araclar.Kontrol;
 import araclar.Veritabani;
-import bot.HesapAcBotu;
 import twitter.Ayar;
 import twitter.Hesap;
-import twitter.Is;
+import twitter.APILockter;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import vpn.HMA;
@@ -17,7 +16,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Ana {
-    public static String VERSIYON = "v1.91";
+    public static String VERSIYON = "v1.98";
     public static void main(String[] args) throws IOException, TwitterException {
         HMA.SUDO_SIFRESI = "rkn42rdm";
         System.out.println("");
@@ -30,6 +29,8 @@ public class Ana {
         System.out.println("                                      " + VERSIYON + "\n\n");
         Veritabani.internetBaglantisiVarmi();
         boolean LINUX = Kontrol.LinuxMu();
+        System.out.println(Kontrol.BagimlilikKontrolu());
+
         System.out.println("----------------------------------------------");
         System.out.println("ANA MENÜ");
         System.out.println("----------------------------------------------");
@@ -43,6 +44,7 @@ public class Ana {
         System.out.println("7) Veritabanını bilgileri");
         System.out.println("8) OTOMATİK SERİ HESAP AÇ [BETA]");
         System.out.println("9) Çık");
+
 
         //Birine Takipçi Gönder
         //
@@ -68,10 +70,11 @@ public class Ana {
 
             for (int i = 1; i < liste.size(); i++) {
                 List<String> kullanici = Veritabani.kullaniciTokeniAl(liste.get(i));
-                System.out.println(kullanici.get(1) + kullanici.get(2));
+              //  System.out.println(kullanici.get(1) + kullanici.get(2));
                 Twitter baglihesap = Hesap.getir(kullanici.get(1), kullanici.get(2), kullanici.get(3), kullanici.get(4));
-                Is.rtYap(baglihesap, statuskodu);
-                Is.favYap(baglihesap, statuskodu);
+                APILockter.rtYap(baglihesap, statuskodu);
+               APILockter.favYap(baglihesap, statuskodu);
+             //   APILockter.takipEt(baglihesap, "yilmazeraziz");
             }
             System.out.println("Görev tamamlandı. Programdan çıkılıyor...");
             System.exit(0);
@@ -80,7 +83,7 @@ public class Ana {
             System.out.println("Görev tamamlandı. Programdan çıkılıyor...");
             System.exit(0);
         } else if (num == 8) {
-            HesapAcBotu.main(null);
+//            HesapAcBotu.(null);
         } else if (num == 9) {
             System.out.println("Programdan çıkılıyor...");
             System.exit(0);

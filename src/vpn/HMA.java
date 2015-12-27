@@ -20,22 +20,24 @@ public class HMA {
     public static boolean bagliMi() {
         try {
             Log.yaz("VPN bağlantısı test ediliyor...", BILGI);
-            String[] cmd = {"/bin/bash", "-c", "echo " + SUDO_SIFRESI + "| sudo -S  sh/hma-vpn.sh -s"};
+            String[] cmd = {"/bin/bash", "-c", "echo " + SUDO_SIFRESI + "| sudo -S  pgrep openvpn"};
             ProcessBuilder pb = new ProcessBuilder(cmd);
             Process p = null;
             p = pb.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line = null;
             String buff = null;
-            while ((line = reader.readLine()) != null) {
-                buff = buff + line;
-                Log.yaz(line, CIKTI);
-            }
-            if (buff.contains("Connected")) {
+            line = reader.readLine();
+
+            if (line != null) {
                 Log.yaz("VPN bağlantısı var", BILGI);
+                p.destroy();
+                reader.close();
                 return true;
             } else {
                 Log.yaz("VPN bağlantısı yok", UYARI);
+                p.destroy();
+                reader.close();
                 return false;
             }
         } catch (IOException e) {

@@ -1,24 +1,23 @@
 package bot;
 
+import araclar.Jenerator;
 import araclar.Log;
 import araclar.Veritabani;
-import org.apache.commons.logging.LogFactory;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.Tarayici;
+import twitter.APILockter;
 import twitter.Hesap;
-import twitter.Is;
 import twitter4j.Twitter;
 import vpn.HMA;
 
-import java.io.File;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 import static araclar.Log.Tur.*;
 
@@ -38,9 +37,8 @@ public class HesapAcBotu {
     static String SIFRE;
     static WebDriver driver;
 
-    //TODO: Bağımlılıklar: curl wget openvpn dialog sudo fping 	chromium-chromedriver
+    //TODO: Bağımlılıklar: curl wget openvpn dialog sudo fping
     public static void main(String[] args) {
-        //TODO: /usr/bin/chromedriver kontrolü yapılacak!
         //TODO: İnternet testi gerek
         //TODO: RAM Yemeyecek!: ÇÖZÜLDÜ
         while (true) {
@@ -57,20 +55,8 @@ public class HesapAcBotu {
                     }
                     if (!Veritabani.sqlBaglantisiVarmi())
                         Veritabani.sqlBaglan();
-                    Log.yaz("Tarayıcı hazırlanıyor... ", BILGI);
-                    LogFactory.getFactory().setAttribute("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
-                    java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
-                    java.util.logging.Logger.getLogger("org.apache.commons.httpclient").setLevel(Level.OFF);
 
-                    Log.yaz("Tarayıcı açılıyor...", BILGI);
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.addArguments("--log-level=3");
-                    chromeOptions.addArguments("--disable-logging");
-
-                    chromeOptions.addExtensions(new File("sh/b.crx"));
-                    driver = new ChromeDriver(chromeOptions);
-                    driver.manage().window().setSize(new Dimension(1, 1));
-                    driver.manage().window().setPosition(new Point(0, 0));
+                    WebDriver driver = Tarayici.Light(false, false);
 
                     WebDriverWait zamanasimi = new WebDriverWait(driver, ZAMAN_ASIMI_TARAYICI);
 
@@ -82,7 +68,7 @@ public class HesapAcBotu {
                     WebElement _adsoyad = driver.findElement(By.xpath("//*[@id=\"oauth_signup_client_fullname\"]"));
                     _adsoyad.sendKeys(TAM_ISIM);
                     WebElement _eposta = driver.findElement(By.xpath("//*[starts-with(@id,'A')]"));
-                    EPOSTA = Eposta.yeniAc();
+                    EPOSTA = EpostaBotu.yeniAc();
                     _eposta.sendKeys(EPOSTA);
                     _eposta.submit();
                     if (driver.getCurrentUrl().contains("create_password")) {
@@ -148,23 +134,23 @@ public class HesapAcBotu {
                             driver.quit();
                             Log.yaz("Hesabın ayarları yapılıyor...", BILGI);
                             Twitter hesap = Hesap.getir(TOKEN, SECRETTOKEN, CUNSOMERKEY, CUNSOMERSECRET);
-                            Is.avatarGuncelle(hesap, Jenerator.rastgeleAvatar());
-                            Is.bannerGuncelle(hesap, Jenerator.rastgeleBanner());
+                            APILockter.avatarGuncelle(hesap, Jenerator.rastgeleAvatar());
+                            APILockter.bannerGuncelle(hesap, Jenerator.rastgeleBanner());
 
-                            Is.bioGuncelle(hesap, Veritabani.rastgeleBio());
+                            APILockter.bioGuncelle(hesap, Veritabani.rastgeleBio());
 
                             for (int i = 1; i < new Random().nextInt(4) + 1; i++) {
-                                Is.tweetAt(hesap, Veritabani.rastgeleTweet());
+                                APILockter.tweetAt(hesap, Veritabani.rastgeleTweet());
                                 //TODO: Aynı tweet'i atmamalı!
                             }
                             //TODO: DEĞİŞKENLER SAYI OLACAK--
                             for (int i = 1; i < new Random().nextInt(6) + 4; i++) {
-                                Is.takipEt(hesap, Veritabani.rastgeleTakipEdilecekKullanici());
+                                APILockter.takipEt(hesap, Veritabani.rastgeleTakipEdilecekKullanici());
                             }
 
                             Log.yaz("Hesabın doğrulaması yapılıyor...", BILGI);
 
-                            if (Eposta.dogrula()) {
+                            if (EpostaBotu.dogrula()) {
                                 Veritabani.hesapEkle(KULLANICI_ADI, SIFRE,
                                         TOKEN, SECRETTOKEN, CUNSOMERKEY, CUNSOMERSECRET,
                                         Veritabani.DURUMMODEL.REALISTIC, EPOSTA, "RATER 4 SERVER");
@@ -181,7 +167,7 @@ public class HesapAcBotu {
                         Log.yaz("Bu IP'den daha fazla hesap alınamıyor", UYARI);
                         Log.yaz("Tarayıcılar devre dışı bırakılıyor...", UYARI);
                         try {
-                            Eposta.driver.quit();
+                            EpostaBotu.driver.quit();
                             Log.yaz("E-posta tarayıcısı kapatıldı", UYARI);
                         } catch (org.openqa.selenium.remote.SessionNotFoundException e1) {
                         }
@@ -215,7 +201,7 @@ public class HesapAcBotu {
                 Log.yaz("Tarayıcılar devre dışı bırakılıyor...", UYARI);
 
                 try {
-                    Eposta.driver.quit();
+                    EpostaBotu.driver.quit();
                     Log.yaz("E-posta tarayıcısı kapatıldı", UYARI);
                 } catch (org.openqa.selenium.remote.SessionNotFoundException e1) {
                 }
@@ -223,7 +209,7 @@ public class HesapAcBotu {
                 try {
                     driver.quit();
                     Log.yaz("Ana tarayıcı kapatıldı", UYARI);
-                } catch (org.openqa.selenium.remote.SessionNotFoundException e2) {
+                } catch (org.openqa.selenium.remote.SessionNotFoundException | NullPointerException e2) {
                 }
 
 

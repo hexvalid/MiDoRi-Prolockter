@@ -1,0 +1,2 @@
+mobile.twitter.com:HSTS	0	16796	2082357340141,1,0
+syndication.twitter.com:HSTS	0	16796	2082357340159,1,0

@@ -1,7 +1,6 @@
 package araclar;
 
 import ana.Ana;
-import bot.Eposta;
 import vpn.HMA;
 
 import java.net.URL;
@@ -37,12 +36,8 @@ public class Veritabani {
     public static Statement SQL_STS = null;
     public static Connection SQL_BAGLANTISI = null;
 
-    public static void main(String[] args) {
-        System.out.println(Eposta.yeniAc());
-
-        System.out.println(Eposta.driver.getCurrentUrl());
-        Eposta.driver.quit();
-        System.out.println(Eposta.driver.getCurrentUrl());
+    public static void main(String[] args) throws SQLException {
+        sqlBaglan();
 
 
     }
@@ -116,6 +111,14 @@ public class Veritabani {
             Log.yaz("Veritabanına yeni hesap eklenemedi: " + e, HATA);
         }
     }
+
+    public static void hesapSil(String kullaniciadi) throws SQLException {
+        String sql = "DELETE FROM hesaplar " +
+                "WHERE '" + kullaniciadi + "' = KULLANICI_ADI";
+        SQL_STS.executeUpdate(sql);
+        Log.yaz("Veritabanından kullanıcı silindi", UYARI);
+    }
+
 
     public static List<String> kullaniciAl(SQLMODEL model) {
         List<String> liste = new ArrayList<String>();

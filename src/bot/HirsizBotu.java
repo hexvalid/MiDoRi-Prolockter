@@ -2,8 +2,8 @@ package bot;
 
 import araclar.Log;
 import araclar.Veritabani;
+import twitter.APILockter;
 import twitter.Hesap;
-import twitter.Is;
 import twitter4j.*;
 
 import java.io.File;
@@ -41,10 +41,10 @@ public class HirsizBotu {
             for (Status status : result.getTweets()) {
                 String kullaniciadi = status.getUser().getScreenName();
                 if (!new File("list/avatar/" + kullaniciadi + ".jpeg").exists()) {
-                    Is.indir(status.getUser().getOriginalProfileImageURLHttps(),
+                    APILockter.indir(status.getUser().getOriginalProfileImageURLHttps(),
                             "list/avatar/" + kullaniciadi + ".jpeg", false);
                     Log.yaz("@" + kullaniciadi + " isimli kullanıcısının profil resmi alındı", BASARILI);
-                    Is.indir(status.getUser().getProfileBannerURL(),
+                    APILockter.indir(status.getUser().getProfileBannerURL(),
                             "list/banner/" + kullaniciadi + ".jpeg", false);
                     Log.yaz("@" + kullaniciadi + " isimli kullanıcısının banner resmi alındı", BASARILI);
                 } else {
